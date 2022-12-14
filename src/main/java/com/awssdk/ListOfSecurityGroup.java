@@ -28,15 +28,21 @@ public class ListOfSecurityGroup {
 
 		    DescribeSecurityGroupsResult response =
 		        ec2.describeSecurityGroups();
-
+		    
+		    System.out.println("-------------------------------------------------------------------------------");
+		    System.out.printf(" | %-23s| %-21s | %-25s |%n", "security group","vpc id","description");
+		    
 		    for(SecurityGroup group : response.getSecurityGroups()) {
-		        System.out.printf(
-		            "\n Found security group with id %s, " +
-		            "\n vpc id %s " +
-		            "\n and description %s",
-		            group.getGroupId(),
-		            group.getVpcId(),
-		            group.getDescription());
+		    	System.out.println("-------------------------------------------------------------------------------");
+		    	 System.out.printf(" | %-23s| %-15s | %-20s |%n", group.getGroupId(),group.getVpcId(),group.getDescription());
+		            System.out.println("-------------------------------------------------------------------------------");
+//		        System.out.printf(
+//		            "\n Found security group with id %s, " +
+//		            "\n vpc id %s " +
+//		            "\n and description %s",
+//		            group.getGroupId(),
+//		            group.getVpcId(),
+//		            group.getDescription());
 		    }
 	}
 
