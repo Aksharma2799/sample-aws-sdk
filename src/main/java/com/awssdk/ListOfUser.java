@@ -17,14 +17,20 @@ public void getAllUser() {
 
         while(!done) {
             ListUsersResult response = iam.listUsers(request);
-
+            
+            System.out.println("--------------------------------------------------");
+            System.out.printf("| %-16s| %-28s  |%n", "user","PL changed");
+            System.out.println("--------------------------------------------------");
+            
+            
             for(User user : response.getUsers()) {
-            	
-                System.out.format("\n Password last changed : %s", user.getPasswordLastUsed());
-                System.out.format("\n Retrieved user : %s", user.getUserName());
-                
+//            	System.out.format("\n Retrieved user : %s", user.getUserName());
+//                System.out.format("\n PL changed : %s", user.getPasswordLastUsed());
+            	System.out.printf("| %-16s| %-28s  |%n ",user.getUserName(),user.getPasswordLastUsed());
+            	 System.out.println("-------------------------------------------------");
                
             }
+            System.out.println("--------------------------------------------------");
             request.setMarker(response.getMarker());
             if(!response.getIsTruncated()) {
                 done = true;
