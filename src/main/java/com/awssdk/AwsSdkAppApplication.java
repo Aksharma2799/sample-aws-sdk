@@ -17,7 +17,7 @@ public class AwsSdkAppApplication {
 				
 		System.out.println("*********************List of user ***************************");
 				
-		ListOfUser listOfUser = new ListOfUser();
+		DescribeInstances listOfUser = new DescribeInstances();
 		listOfUser.getAllUser();
 		
 		System.out.println("\n********************** List of security groups ****************");
@@ -28,6 +28,13 @@ public class AwsSdkAppApplication {
 		System.out.println("\n********************** Printing employee detail ****************");
 		MyTest myTest = new MyTest();
 		myTest.getEmployee();
+		
+		
+		System.out.println("\n********************** cpu utilization time ****************");
+		AwsCloudWatchMetrics metrics = new AwsCloudWatchMetrics();
+		metrics.MonitorCPU();
+		
+		
 		
 	}
 }
